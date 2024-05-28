@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6"
 subtitle: "STAT 201"
-author: "YOUR NAME"
+author: "Samantha Carpenter"
 
 format:
   html:
@@ -48,7 +48,7 @@ To get full credit for this Question you must:
 
 ## Github Repo Link
 
-[https://your-github-repo-url](https://your-github-repo-url)
+[https://github.com/samanthacarpenter/Carpenter_Samantha_201_A06](https://github.com/samanthacarpenter/Carpenter_Samantha_201_A06)
 
 :::
 
@@ -56,7 +56,7 @@ To get full credit for this Question you must:
 
 ## Screenshot/image of RStudio
 
-![](filepath.png)
+![](Screenshot 2024-05-20 at 11.42.51 AM Small.png)
 
 :::
 
@@ -102,7 +102,8 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
-
+player_info[[2]][[4]]
+player_info$LJ$points
 ```
 
 
@@ -113,7 +114,13 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
+height <- list(78, 81, 78, 86, 85)
 
+for(i in 1:length(player_info)){
+  player_info[[i]]$height <- height[[i]]
+}
+
+player_info
 ```
 
 
@@ -132,7 +139,17 @@ Hint: initialize an empty list
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
+points_per_game <- list()
+names_of_players <- c()
 
+for(i in 1:length(player_info)){
+  player_ppg <- player_info[[i]]$points/player_info[[i]]$games_played
+  names_of_players <- append(names_of_players, names(player_info)[[i]])
+  points_per_game <- append(points_per_game, player_ppg)
+}
+
+names(points_per_game) <- names_of_players
+points_per_game
 ```
 
 
@@ -143,7 +160,8 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
-
+rounded_ppg <- sapply(points_per_game, function(x){round(x,2)})
+rounded_ppg
 ```
 
 
