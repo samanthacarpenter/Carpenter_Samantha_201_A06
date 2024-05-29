@@ -3213,11 +3213,11 @@ Screenshot/image of RStudio
 <li>using names</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>player_info[[<span class="dv">2</span>]][[<span class="dv">4</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>player_info[[<span class="dv">2</span>]][[<span class="dv">4</span>]] <span class="co"># index 4th element of 2nd element of list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8162</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>player_info<span class="sc">$</span>LJ<span class="sc">$</span>points</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>player_info<span class="sc">$</span>LJ<span class="sc">$</span>points <span class="co"># using names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8162</code></pre>
 </div>
@@ -3228,10 +3228,10 @@ Screenshot/image of RStudio
 <p>Add a new named element to the end of each player’s list called <code>height</code>. The heights in inches are as follows: MJ = 78; LJ = 81; KB = 78; KA = 86; SO = 85.</p>
 <p>Print the <code>player_info</code> list to prove you were successful.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">78</span>, <span class="dv">81</span>, <span class="dv">78</span>, <span class="dv">86</span>, <span class="dv">85</span>)</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">78</span>, <span class="dv">81</span>, <span class="dv">78</span>, <span class="dv">86</span>, <span class="dv">85</span>) <span class="co"># put heights into vector</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(player_info)){</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  player_info[[i]]<span class="sc">$</span>height <span class="ot">&lt;-</span> height[[i]]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(player_info)){ <span class="co"># iterates through each player in list</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  player_info[[i]]<span class="sc">$</span>height <span class="ot">&lt;-</span> height[[i]] <span class="co"># assigns respective height to each player, names element</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>player_info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3348,16 +3348,16 @@ $SO$height
 <p>Hint: initialize an empty list</p>
 <p>Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>points_per_game <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>names_of_players <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>points_per_game <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># initialize empty list of points per game</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>names_of_players <span class="ot">&lt;-</span> <span class="fu">c</span>() <span class="co"># initialize empty vector of player names</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(player_info)){</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  player_ppg <span class="ot">&lt;-</span> player_info[[i]]<span class="sc">$</span>points<span class="sc">/</span>player_info[[i]]<span class="sc">$</span>games_played</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  names_of_players <span class="ot">&lt;-</span> <span class="fu">append</span>(names_of_players, <span class="fu">names</span>(player_info)[[i]])</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  points_per_game <span class="ot">&lt;-</span> <span class="fu">append</span>(points_per_game, player_ppg)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(player_info)){ <span class="co"># iterates through each player</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  player_ppg <span class="ot">&lt;-</span> player_info[[i]]<span class="sc">$</span>points<span class="sc">/</span>player_info[[i]]<span class="sc">$</span>games_played <span class="co"># calculates points per game for specific player</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  names_of_players <span class="ot">&lt;-</span> <span class="fu">append</span>(names_of_players, <span class="fu">names</span>(player_info)[[i]]) <span class="co"># name of specific player is added to vector of player names</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  points_per_game <span class="ot">&lt;-</span> <span class="fu">append</span>(points_per_game, player_ppg) <span class="co"># points per game value is added to list</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(points_per_game) <span class="ot">&lt;-</span> names_of_players</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(points_per_game) <span class="ot">&lt;-</span> names_of_players <span class="co"># each element is named with respective player</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>points_per_game</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$MJ
@@ -3382,7 +3382,7 @@ $SO
 <p>Use the list created in Part c and an appropriate apply function to round each value to two decimal places.</p>
 <p>Store the output as a vector and print the results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rounded_ppg <span class="ot">&lt;-</span> <span class="fu">sapply</span>(points_per_game, <span class="cf">function</span>(x){<span class="fu">round</span>(x,<span class="dv">2</span>)})</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>rounded_ppg <span class="ot">&lt;-</span> <span class="fu">sapply</span>(points_per_game, <span class="cf">function</span>(x){<span class="fu">round</span>(x,<span class="dv">2</span>)}) <span class="co"># sapply to return vector, uses customized round() function to round to 2 decimal places</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>rounded_ppg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   MJ    LJ    KB    KA    SO 
@@ -3401,27 +3401,27 @@ $SO
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mat_rand</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,] 1641   73   16  657  418
-[2,]   78 1932 1947 1636  795
-[3,] 1391  264   19  615   60
-[4,]   67  645 1709  751  240
-[5,]   70   40   79  164 1206
-[6,]  410 1909 1382   83 1088</code></pre>
+[1,] 1473 1441   54 1444  973
+[2,] 1061 1150  941   31  857
+[3,]   45   42 1046  605  843
+[4,] 1735  283  385   13   23
+[5,] 1638 1385  892 1685   77
+[6,]   29  100  486   17  978</code></pre>
 </div>
 </div>
 <p>Use an appropriate apply function to round values with 2 digits to the nearest tens, values with 3 digits to the nearest hundreds, and 4 digits to the nearest thousands.</p>
 <p>ie: 91 rounds to 90; 173 rounds to 200; 1450 rounds to 1000</p>
 <p>Hint: use <code>MARGIN = 1:2</code> to apply the function to each value instead of only a row/col.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat_rand, <span class="at">MARGIN =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">signif</span>(x, <span class="dv">1</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat_rand, <span class="at">MARGIN =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">signif</span>(x, <span class="dv">1</span>)}) <span class="co"># function applies to each value, uses customized signif() function to round to 1 significant figure</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,] 2000   70   20  700  400
-[2,]   80 2000 2000 2000  800
-[3,] 1000  300   20  600   60
-[4,]   70  600 2000  800  200
-[5,]   70   40   80  200 1000
-[6,]  400 2000 1000   80 1000</code></pre>
+[1,] 1000 1000   50 1000 1000
+[2,] 1000 1000  900   30  900
+[3,]   40   40 1000  600  800
+[4,] 2000  300  400   10   20
+[5,] 2000 1000  900 2000   80
+[6,]   30  100  500   20 1000</code></pre>
 </div>
 </div>
 </section>
@@ -3442,7 +3442,7 @@ $SO
 <h3 class="anchored" data-anchor-id="part-a-2-points">Part a (2 points)</h3>
 <p>Calculate the average temperature for each month across the whole data frame (using the data for all three states together).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(max_temps[<span class="fu">c</span>(<span class="st">&#39;jan&#39;</span>, <span class="st">&#39;feb&#39;</span>, <span class="st">&#39;mar&#39;</span>, <span class="st">&#39;apr&#39;</span>, <span class="st">&#39;may&#39;</span>, <span class="st">&#39;jun&#39;</span>, <span class="st">&#39;jul&#39;</span>, <span class="st">&#39;aug&#39;</span>, <span class="st">&#39;sep&#39;</span>, <span class="st">&#39;oct&#39;</span>, <span class="st">&#39;nov&#39;</span>, <span class="st">&#39;dec&#39;</span>)], <span class="dv">2</span>, mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(max_temps[<span class="fu">c</span>(<span class="st">&#39;jan&#39;</span>, <span class="st">&#39;feb&#39;</span>, <span class="st">&#39;mar&#39;</span>, <span class="st">&#39;apr&#39;</span>, <span class="st">&#39;may&#39;</span>, <span class="st">&#39;jun&#39;</span>, <span class="st">&#39;jul&#39;</span>, <span class="st">&#39;aug&#39;</span>, <span class="st">&#39;sep&#39;</span>, <span class="st">&#39;oct&#39;</span>, <span class="st">&#39;nov&#39;</span>, <span class="st">&#39;dec&#39;</span>)], <span class="dv">2</span>, mean) <span class="co"># only applies to columns for each month, calculates means</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     jan      feb      mar      apr      may      jun      jul      aug 
 38.89206 41.93598 50.73148 61.35608 71.26111 79.95503 84.17460 82.23571 
@@ -3461,9 +3461,9 @@ $SO
 </ul>
 <p>No need to print any output here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>CO_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;CO&#39;</span>,]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>OH_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;OH&#39;</span>,]</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>VA_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;VA&#39;</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>CO_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;CO&#39;</span>,] <span class="co"># only keeps values where state is CO</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>OH_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;OH&#39;</span>,] <span class="co"># only keeps values where state is OH</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>VA_max_temps <span class="ot">&lt;-</span> max_temps[max_temps<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&#39;VA&#39;</span>,] <span class="co"># only keeps values where state is VA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="part-c-5-points" class="level3">
@@ -3476,12 +3476,12 @@ $SO
 <p>“The maximum median annual temperature of 68.25 occurred in 2017 and the minimum median annual temperature of 57.15 occurred in 1907.”</p>
 <p>Note: This code should still run successfully even if the numbers were to change.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>med_temps <span class="ot">&lt;-</span> <span class="fu">apply</span>(CO_max_temps[<span class="fu">c</span>(<span class="st">&#39;jan&#39;</span>, <span class="st">&#39;feb&#39;</span>, <span class="st">&#39;mar&#39;</span>, <span class="st">&#39;apr&#39;</span>, <span class="st">&#39;may&#39;</span>, <span class="st">&#39;jun&#39;</span>, <span class="st">&#39;jul&#39;</span>, <span class="st">&#39;aug&#39;</span>, <span class="st">&#39;sep&#39;</span>, <span class="st">&#39;oct&#39;</span>, <span class="st">&#39;nov&#39;</span>, <span class="st">&#39;dec&#39;</span>)], <span class="dv">1</span>, median)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>med_temps <span class="ot">&lt;-</span> <span class="fu">apply</span>(CO_max_temps[<span class="fu">c</span>(<span class="st">&#39;jan&#39;</span>, <span class="st">&#39;feb&#39;</span>, <span class="st">&#39;mar&#39;</span>, <span class="st">&#39;apr&#39;</span>, <span class="st">&#39;may&#39;</span>, <span class="st">&#39;jun&#39;</span>, <span class="st">&#39;jul&#39;</span>, <span class="st">&#39;aug&#39;</span>, <span class="st">&#39;sep&#39;</span>, <span class="st">&#39;oct&#39;</span>, <span class="st">&#39;nov&#39;</span>, <span class="st">&#39;dec&#39;</span>)], <span class="dv">1</span>, median) <span class="co"># calculates median temps for each year using only data from columns for each month</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>max_index <span class="ot">&lt;-</span> <span class="fu">which.max</span>(med_temps)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>min_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(med_temps)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>max_index <span class="ot">&lt;-</span> <span class="fu">which.max</span>(med_temps) <span class="co"># finds index of maximum median temperature</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>min_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(med_temps) <span class="co"># finds index of minimum median temperature</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&#39;The maximum median annual temperature of &#39;</span>, med_temps[max_index], <span class="st">&#39; occurred in &#39;</span>, CO_max_temps<span class="sc">$</span>year[max_index], <span class="st">&#39; and the minimum median annual temperature of &#39;</span>, med_temps[min_index], <span class="st">&#39; occurred in &#39;</span>, CO_max_temps<span class="sc">$</span>year[min_index], <span class="st">&#39;.&#39;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">&#39;The maximum median annual temperature of &#39;</span>, med_temps[max_index], <span class="st">&#39; occurred in &#39;</span>, CO_max_temps<span class="sc">$</span>year[max_index], <span class="st">&#39; and the minimum median annual temperature of &#39;</span>, med_temps[min_index], <span class="st">&#39; occurred in &#39;</span>, CO_max_temps<span class="sc">$</span>year[min_index], <span class="st">&#39;.&#39;</span>) <span class="co"># prints statement using index values of max and min to find the correct temperatures and their respective years</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;The maximum median annual temperature of 63.95 occurred in 1934 and the minimum median annual temperature of 50.85 occurred in 1984.&quot;</code></pre>
 </div>
@@ -3494,17 +3494,15 @@ $SO
 <p>Example: The number 312 would return 6 (3 + 1 + 2)</p>
 <p>Run your function with 935068.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>digit_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(user_num){</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  running_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(user_num <span class="sc">==</span> <span class="dv">0</span>){</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    running_sum <span class="ot">&lt;-</span> running_sum <span class="sc">+</span> user_num <span class="sc">%%</span> <span class="dv">10</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(running_sum <span class="sc">+</span> <span class="fu">digit_sum</span>(user_num <span class="sc">%/%</span> <span class="dv">10</span>))</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">digit_sum</span>(<span class="dv">935068</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>digit_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(user_num){ <span class="co"># takes number as input</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(user_num <span class="sc">==</span> <span class="dv">0</span>){ <span class="co"># base case returns 0 when out of digits</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(user_num <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">+</span> <span class="fu">digit_sum</span>(user_num <span class="sc">%/%</span> <span class="dv">10</span>)) <span class="co"># returns sum of last digit of number and result of truncated new number when run through function again</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">digit_sum</span>(<span class="dv">935068</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 31</code></pre>
 </div>
