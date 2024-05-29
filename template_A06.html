@@ -3401,12 +3401,12 @@ $SO
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mat_rand</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,]  969  167 1599 1877 1254
-[2,]   22   45   37   61  696
-[3,]   38 1429   98 1080 1567
-[4,]   63  370   50  912  108
-[5,] 1852  286 1582  283  984
-[6,]   21  616 1995   85 1738</code></pre>
+[1,] 1641   73   16  657  418
+[2,]   78 1932 1947 1636  795
+[3,] 1391  264   19  615   60
+[4,]   67  645 1709  751  240
+[5,]   70   40   79  164 1206
+[6,]  410 1909 1382   83 1088</code></pre>
 </div>
 </div>
 <p>Use an appropriate apply function to round values with 2 digits to the nearest tens, values with 3 digits to the nearest hundreds, and 4 digits to the nearest thousands.</p>
@@ -3416,12 +3416,12 @@ $SO
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mat_rand, <span class="at">MARGIN =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="cf">function</span>(x){<span class="fu">signif</span>(x, <span class="dv">1</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
-[1,] 1000  200 2000 2000 1000
-[2,]   20   40   40   60  700
-[3,]   40 1000  100 1000 2000
-[4,]   60  400   50  900  100
-[5,] 2000  300 2000  300 1000
-[6,]   20  600 2000   80 2000</code></pre>
+[1,] 2000   70   20  700  400
+[2,]   80 2000 2000 2000  800
+[3,] 1000  300   20  600   60
+[4,]   70  600 2000  800  200
+[5,]   70   40   80  200 1000
+[6,]  400 2000 1000   80 1000</code></pre>
 </div>
 </div>
 </section>
@@ -3493,6 +3493,22 @@ $SO
 <p>Write a recursive function that calculates the sum of the digits in a number.</p>
 <p>Example: The number 312 would return 6 (3 + 1 + 2)</p>
 <p>Run your function with 935068.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>digit_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(user_num){</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  running_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(user_num <span class="sc">==</span> <span class="dv">0</span>){</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    running_sum <span class="ot">&lt;-</span> running_sum <span class="sc">+</span> user_num <span class="sc">%%</span> <span class="dv">10</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(running_sum <span class="sc">+</span> <span class="fu">digit_sum</span>(user_num <span class="sc">%/%</span> <span class="dv">10</span>))</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="fu">digit_sum</span>(<span class="dv">935068</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31</code></pre>
+</div>
+</div>
 </section>
 </section>
 
