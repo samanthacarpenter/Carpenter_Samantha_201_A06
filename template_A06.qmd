@@ -1,7 +1,7 @@
 ---
 title: "Assignment 6"
 subtitle: "STAT 201"
-author: "Samantha Carpenter"
+author: "YOUR NAME"
 
 format:
   html:
@@ -48,7 +48,7 @@ To get full credit for this Question you must:
 
 ## Github Repo Link
 
-[https://github.com/samanthacarpenter/Carpenter_Samantha_201_A06](https://github.com/samanthacarpenter/Carpenter_Samantha_201_A06)
+[https://your-github-repo-url](https://your-github-repo-url)
 
 :::
 
@@ -56,7 +56,7 @@ To get full credit for this Question you must:
 
 ## Screenshot/image of RStudio
 
-![](Screenshot 2024-05-20 at 11.42.51 AM Small.png)
+![](filepath.png)
 
 :::
 
@@ -102,8 +102,7 @@ Extract the value `8162` (LeBron James points) in 2 different ways:
 - using names
 
 ```{r}
-player_info[[2]][[4]] # index 4th element of 2nd element of list
-player_info$LJ$points # using names
+
 ```
 
 
@@ -114,13 +113,7 @@ Add a new named element to the end of each player's list called `height`. The he
 Print the `player_info` list to prove you were successful.
 
 ```{r}
-height <- c(78, 81, 78, 86, 85) # put heights into vector
 
-for(i in 1:length(player_info)){ # iterates through each player in list
-  player_info[[i]]$height <- height[[i]] # assigns respective height to each player, names element
-}
-
-player_info
 ```
 
 
@@ -139,17 +132,7 @@ Hint: initialize an empty list
 Note: this must still run correctly even if the values were to change or if another player were added to the list or if the player order changed.
 
 ```{r}
-points_per_game <- list() # initialize empty list of points per game
-names_of_players <- c() # initialize empty vector of player names
 
-for(i in 1:length(player_info)){ # iterates through each player
-  player_ppg <- player_info[[i]]$points/player_info[[i]]$games_played # calculates points per game for specific player
-  names_of_players <- append(names_of_players, names(player_info)[[i]]) # name of specific player is added to vector of player names
-  points_per_game <- append(points_per_game, player_ppg) # points per game value is added to list
-}
-
-names(points_per_game) <- names_of_players # each element is named with respective player
-points_per_game
 ```
 
 
@@ -160,8 +143,7 @@ Use the list created in Part c and an appropriate apply function to round each v
 Store the output as a vector and print the results.
 
 ```{r}
-rounded_ppg <- sapply(points_per_game, function(x){round(x,2)}) # sapply to return vector, uses customized round() function to round to 2 decimal places
-rounded_ppg
+
 ```
 
 
@@ -173,7 +155,6 @@ Consider the matrix `mat_rand` of random numbers below.
 rand_num <- c(sample(10:100, 10), sample(100:999, 10), sample(1000:2000, 10))
 
 mat_rand <- matrix(sample(rand_num, 30), ncol = 5)
-mat_rand
 ```
 
 Use an appropriate apply function to round values with 2 digits to the nearest tens, values with 3 digits to the nearest hundreds, and 4 digits to the nearest thousands.
@@ -183,7 +164,7 @@ ie: 91 rounds to 90; 173 rounds to 200; 1450 rounds to 1000
 Hint: use `MARGIN = 1:2` to apply the function to each value instead of only a row/col.
 
 ```{r}
-apply(mat_rand, MARGIN = 1:2, function(x){signif(x, 1)}) # function applies to each value, uses customized signif() function to round to 1 significant figure
+
 ```
 
 
@@ -207,7 +188,7 @@ max_temps <- read_tsv("state_max_temps.tsv") |>
 Calculate the average temperature for each month across the whole data frame (using the data for all three states together).
 
 ```{r}
-apply(max_temps[c('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec')], 2, mean) # only applies to columns for each month, calculates means
+
 ```
 
 
@@ -222,9 +203,7 @@ Create three new data frames by slicing the data by state.
 No need to print any output here.
 
 ```{r}
-CO_max_temps <- max_temps[max_temps$state == 'CO',] # only keeps values where state is CO
-OH_max_temps <- max_temps[max_temps$state == 'OH',] # only keeps values where state is OH
-VA_max_temps <- max_temps[max_temps$state == 'VA',] # only keeps values where state is VA
+
 ```
 
 
@@ -245,12 +224,7 @@ Example (this is NOT the answer just an example of what goes in the {}):
 Note: This code should still run successfully even if the numbers were to change.
 
 ```{r}
-med_temps <- apply(CO_max_temps[c('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec')], 1, median) # calculates median temps for each year using only data from columns for each month
 
-max_index <- which.max(med_temps) # finds index of maximum median temperature
-min_index <- which.min(med_temps) # finds index of minimum median temperature
-
-paste0('The maximum median annual temperature of ', med_temps[max_index], ' occurred in ', CO_max_temps$year[max_index], ' and the minimum median annual temperature of ', med_temps[min_index], ' occurred in ', CO_max_temps$year[min_index], '.') # prints statement using index values of max and min to find the correct temperatures and their respective years
 ```
 
 
@@ -263,14 +237,6 @@ Example: The number 312 would return 6 (3 + 1 + 2)
 Run your function with 935068.
 
 ```{r}
-digit_sum <- function(user_num){ # takes number as input
-  if(user_num == 0){ # base case returns 0 when out of digits
-    return(0)
-  } else{
-    return(user_num %% 10 + digit_sum(user_num %/% 10)) # returns sum of last digit of number and result of truncated new number when run through function again
-  }
-}
 
-digit_sum(935068)
 ```
 
